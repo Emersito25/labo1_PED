@@ -11,6 +11,21 @@ void mostrar(const Cuenta &cuenta) {
     cout << "Su saldo es $" << cuenta.saldo << endl;
 }
 
+void depositar(Cuenta &cuenta) {
+    double cantidad;
+
+    cout << "Ingrese la cantidad a depositar: ";
+    cin >> cantidad;
+
+    if (cantidad <= 0) {
+        cout << "La cantidad debe ser mayor que 0." << endl;
+        return;
+    }
+
+    cuenta.saldo += cantidad;
+    cout << "Deposito realizado correctamente." << endl;
+}
+
 void retiro(Cuenta &cuenta) {
     cout << "Ingrese el monto a retirar: $";
     cin >> cuenta.retiro;
@@ -49,11 +64,14 @@ int main() {
                 mostrar(cuenta);
                 break;
             case 2:
+                depositar(cuenta);
+                break;
+            case 3:
                 retiro(cuenta);
                 break;
-
             case 4:
-                cout << "Gracias por usar el cajero" << endl;
+                cout << "\nGracias por usar el cajero." << endl;
+                break;
             default:
                 cout << "\nOpcion invalida." << endl;
                 break;
