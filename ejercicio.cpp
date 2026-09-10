@@ -7,7 +7,20 @@ struct Cuenta{
 
 void mostrar(Cuenta &cuenta){
     cout << "Su saldo es " << cuenta.saldo << "$" <<endl;
-};
+}; 
+void depositar(Cuenta& cuenta) {
+    double cantidad;
+
+    cout << "Ingrese la cantidad a depositar: ";
+    cin >> cantidad;
+
+    if (cantidad <= 0) {
+        cout << "La cantidad debe ser mayor que 0." << endl;
+        return;
+    }
+
+    cuenta.saldo += cantidad;
+    cout << "Deposito realizado correctamente." << endl;
 
 int main(){
 
